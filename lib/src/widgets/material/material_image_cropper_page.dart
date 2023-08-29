@@ -34,6 +34,15 @@ class MaterialImageCropperPage extends StatelessWidget {
           builder: (context, overlayOpacityAnimation) {
             return Scaffold(
               backgroundColor: Colors.black,
+              appBar: AppBar(
+                leading: const SizedBox.shrink(),
+                centerTitle: true,
+                title: const Text(
+                  "Move and Scale",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white, fontSize: 16.0),
+                ),
+              ),
               body: SafeArea(
                 child: Column(
                   children: [
@@ -55,17 +64,17 @@ class MaterialImageCropperPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    RepaintBoundary(
-                      child: AnimatedBuilder(
-                        animation: overlayOpacityAnimation,
-                        builder: (context, _) => Opacity(
-                          opacity: overlayOpacityAnimation.value,
-                          child: MaterialImageCropperToolbar(
-                            controller: controller,
-                          ),
-                        ),
-                      ),
-                    ),
+                    // RepaintBoundary(
+                    //   child: AnimatedBuilder(
+                    //     animation: overlayOpacityAnimation,
+                    //     builder: (context, _) => Opacity(
+                    //       opacity: overlayOpacityAnimation.value,
+                    //       child: MaterialImageCropperToolbar(
+                    //         controller: controller,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                     AnimatedBuilder(
                       animation: overlayOpacityAnimation,
                       builder: (context, _) => Opacity(

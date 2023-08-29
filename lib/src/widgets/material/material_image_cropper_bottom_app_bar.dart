@@ -16,27 +16,32 @@ class MaterialImageCropperBottomAppBar extends StatelessWidget {
     final l10n = CroppyLocalizations.of(context)!;
 
     return Container(
-      decoration: BoxDecoration(
-        border: Border(
-          top: Divider.createBorderSide(context),
-        ),
-      ),
+      // decoration: BoxDecoration(
+      //   border: Border(
+      //     top: Divider.createBorderSide(context),
+      //   ),
+      // ),
       padding: const EdgeInsets.only(
         top: 8.0,
         left: 16.0,
         right: 16.0,
+        bottom: 16.0,
       ),
       child: SafeArea(
         top: false,
         bottom: true,
-        minimum: const EdgeInsets.only(bottom: 16.0),
         child: Row(
           children: [
             SizedBox(
               height: 40.0,
               child: TextButton(
                 onPressed: () => Navigator.maybePop(context),
-                child: Text(l10n.cancelLabel),
+                child: Text(
+                  l10n.cancelLabel,
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
             const Spacer(),
@@ -53,9 +58,14 @@ class MaterialImageCropperBottomAppBar extends StatelessWidget {
                     Navigator.of(context).pop(result);
                   }
                 },
-                builder: (context, onTap) => FilledButton(
+                builder: (context, onTap) => TextButton(
                   onPressed: onTap,
-                  child: Text(l10n.saveLabel),
+                  child: const Text(
+                    "Choose",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ),
